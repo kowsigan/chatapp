@@ -15,7 +15,7 @@ public class MessageService {
 	public List<Message>getAllMessages()
 	{
 		
-		messageData.put(1l, new Message(1l,"hello","kow"));
+	
 				
 		return new ArrayList(messageData.values());
 		
@@ -40,7 +40,14 @@ public class MessageService {
 		
 	}
 	
-	public Message addMessage(long id, Message m1)
+	public Message addMessage( Message m1)
+	{
+		//(messageData.size())+1l
+		
+		return messageData.put((messageData.size())+1l, m1);
+	}
+	
+	public Message updateMessage(long id, Message m1)
 	{
 		return messageData.put(id, m1);
 	}
