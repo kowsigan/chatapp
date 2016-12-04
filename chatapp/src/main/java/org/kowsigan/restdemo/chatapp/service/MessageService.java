@@ -3,26 +3,47 @@ package org.kowsigan.restdemo.chatapp.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.kowsigan.restdemo.chatapp.database.DatabaseModel.messageData;
 import org.kowsigan.restdemo.chatapp.model.Message;
 
 public class MessageService {
 
 	
-	public List<Message> getMessage()
+	
+	
+
+	public List<Message>getAllMessages()
+	{
+		
+		messageData.put(1l, new Message(1l,"hello","kow"));
+				
+		return new ArrayList(messageData.values());
+		
+		
+	}
+	
+	
+	
+	
+	public Message getMessage(long id)
 	{
 	
-	Message m1 = new Message(1l,"hello","kowsigan");
-	
-	Message m2 = new Message(2l,"hello2","kowsigan");
-	
-	List<Message> l= new ArrayList<Message>();
-	
-	l.add(m1);
-	
-	l.add(m2);
-	
-	return l;
+          
+	return messageData.get(id);
 	
 	}
+	
+	public Message removeMessage(long id)
+	{
+		
+		return messageData.remove(id);
+		
+	}
+	
+	public Message addMessage(long id, Message m1)
+	{
+		return messageData.put(id, m1);
+	}
+	
 	
 }

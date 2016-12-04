@@ -19,7 +19,7 @@ public class Messages {
 	{
 		
 		
-		return new MessageService().getMessage();
+		return new MessageService().getAllMessages();
 	}
 	
 	
